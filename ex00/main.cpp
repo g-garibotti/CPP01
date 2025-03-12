@@ -9,9 +9,5 @@ int	main(void)
 	NewZombie->announce();
 	delete NewZombie;
 	std::cout << std::endl;
-	{
-		Zombie scopeZombie("Scope_Zombie");
-		scopeZombie.announce();
-	}
 	return (0);
 }
