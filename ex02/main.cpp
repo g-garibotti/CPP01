@@ -11,7 +11,7 @@ int	main(void)
 	std::cout << "Address of the string variable: " << &brain << std::endl;
 	std::cout << "Address held by stringPTR: " << stringPTR << std::endl;
 	std::cout << "Address held by stringREF: " << &stringREF << std::endl;
-    //
+
 	std::cout << "\nValues:" << std::endl;
 	std::cout << "Value of the string variable: " << brain << std::endl;
 	std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;

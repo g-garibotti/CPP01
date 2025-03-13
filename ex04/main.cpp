@@ -12,12 +12,20 @@ int main(int argc, char *argv[])
 
     const std::string from = argv[2];
     const std::string to = argv[3];
+    
+    if (from.empty() || to.empty())
+    {
+        std::cerr << "Error: from and to strings must not be empty" << std::endl;
+        return 1;
+    }
+    
     std::ifstream inputFile(argv[1]);
     if (!inputFile)
     {
         std::cerr << "Error: could not open file" << std::endl;
         return 1;
     }
+    
     std::string temp;
     std::string line;
     if (std::getline(inputFile, line))
@@ -27,6 +35,7 @@ int main(int argc, char *argv[])
             temp += '\n' + line;
     }
     inputFile.close();
+    
     std::string result;
     size_t i = 0;
     while (i < temp.length())
@@ -42,13 +51,18 @@ int main(int argc, char *argv[])
             i++;
         }
     }
-    std::ofstream outputFile("output.txt");
+    
+    const std::string filename = argv[1];
+    std::string newFilename = filename + ".replace";
+    std::ofstream outputFile(newFilename.c_str());
     if (!outputFile)
     {
         std::cerr << "Error: could not create output file" << std::endl;
         return 1;
     }
+    
     outputFile << result;
-    outputFile.close();  
+    outputFile.close();
+    
     return 0;
 }
