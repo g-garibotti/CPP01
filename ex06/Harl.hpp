@@ -13,6 +13,7 @@ class Harl
 
     public:
         void complain(std::string level);
+        void filterComplain(std::string level);
 };
 
 #endif
